@@ -21,11 +21,13 @@ Route::prefix('admin')->group(function(){
     Route::get('/login',[AdminController::class, 'index'])->name('login_form');
     Route::post('/login/owner',[AdminController::class, 'login'])->name('admin.login');
     Route::get('/dashboard',[AdminController::class, 'dashboard'])->name('admin.dashboard')->middleware('admin');
+    Route::get('/logout',[AdminController::class, 'adminlogout'])->name('admin.logout')->middleware('admin');
+    Route::get('/register',[AdminController::class, 'adminregister'])->name('admin.register');
+    Route::post('/register/create',[AdminController::class, 'adminregistercreate'])->name('admin.register.create');
+
 
 
 });
-
-
 
 // ---admin route--------
 

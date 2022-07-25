@@ -10,6 +10,7 @@
     <!--Page title-->
     <title>Admin easy Learning</title>
     <!--bootstrap-->
+    <!--bootstrap-->
     <link rel="stylesheet" href="{{ asset('panel/assets/css/bootstrap.min.css') }}">
     <!--font awesome-->
     <link rel="stylesheet" href="{{ asset('panel/assets/css/all.min.css') }}">
@@ -30,65 +31,57 @@
     </div> --}}
 
 
-    <!-- wrapper -->
     <div class="wrapper without_header_sidebar">
         <!-- contnet wrapper -->
         <div class="content_wrapper">
             <!-- page content -->
-            <div class="login_page center_container">
+            <div class="registration_page center_container">
                 <div class="center_content">
                     <div class="logo">
-                        <img src="{{ asset('panel/assets/images/logo.png ') }}" alt="" class="img-fluid">
+                        <img src="panel/assets/images/logo.png" alt="" class="img-fluid">
                     </div>
-
-                    @if (Session::has('error'))
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        <strong>{{ session::get('error') }}</strong>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    @endif
-
-                    <form action="{{ route('admin.login') }}" class="d-block" method="post">
+                    <form action="{{ route('admin.register.create') }}" method="post">
                         @csrf
                         <div class="form-group icon_parent">
-                            <label for="password">Email</label>
-                            <input id="email" type="email" class="form-control" name="email" value=" " required
-                                autocomplete="email" autofocus placeholder="Email Address">
-                            <span class="icon_soon_bottom_right"><i class="fas fa-envelope"></i></span>
+                            <label for="uname">Username</label>
+                            <input id="name" type="text" class="form-control" name="name">
 
+                            <span class="icon_soon_bottom_right"><i class="fas fa-user"></i></span>
+                        </div>
+                        <div class="form-group icon_parent">
+                            <label for="email">E-mail</label>
+                            <input id="email" type="email" class="form-control" name="email">
+                            <span class="icon_soon_bottom_right"><i class="fas fa-envelope"></i></span>
                         </div>
                         <div class="form-group icon_parent">
                             <label for="password">Password</label>
                             <input id="password" type="password" class="form-control" name="password" required
-                                autocomplete="current-password" placeholder="Password">
+                                autocomplete="new-password" placeholder="Password">
+
 
                             <span class="icon_soon_bottom_right"><i class="fas fa-unlock"></i></span>
                         </div>
-                        <div class="form-group">
-                            <label class="chech_container">Remember me
-                                <input type="checkbox" name="remember" id="remember">
-                                <span class="checkmark"></span>
-                            </label>
+                        <div class="form-group icon_parent">
+                            <label for="rtpassword">Re-type Password</label>
+                            <input type="password" class="form-control" name="password_confirmation">
+                            <span class="icon_soon_bottom_right"><i class="fas fa-unlock"></i></span>
                         </div>
                         <div class="form-group">
-                            <a class="registration" href="{{ route('admin.register') }}">Create new account</a><br>
-                            <a href=" " class="text-white">I forgot my password</a>
-                            <button type="submit" class="btn btn-blue">Login</button>
+                            <a class="registration" href=" ">Already have an account</a><br>
+                            <button type="submit" class="btn btn-blue">Signup</button>
                         </div>
                     </form>
                     <div class="footer">
                         <p>Copyright &copy; 2020 <a href="https://easylearningbd.com/">easy Learning</a>. All rights
                             reserved.</p>
                     </div>
-
                 </div>
             </div>
         </div>
         <!--/ content wrapper -->
     </div>
     <!--/ wrapper -->
+
 
 
 
@@ -118,7 +111,6 @@
 
     <!-- Main js -->
     <script src="{{ asset(' panel/assets/js/main.js') }}"></script>
-
 
 
 
